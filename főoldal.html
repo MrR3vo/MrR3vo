@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" href="images/astralsmp.gif">
+    <meta name="description" content="Free, modern and nice web template for Minecraft server.">
+    <meta name="author" content="Astronawta">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+
+    <title>AstralSMP | Főoldal</title>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="navbar">
+        <div class="menu-mobile">
+            <a href="főoldal.html">
+                <div class="logo">
+                    <img src="images/astralsmp.gif" alt="Server logo" class="logo-img">
+                    <h3 class="server-name">AstralSMP</h3>
+                </div>
+            </a>
+
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="#" class="link active">Fő Oldal</a>
+            <a href="staff-csapat.html" class="link">Staff-Csapat</a>
+        </div>
+    </div>
+
+    <!--Header-->
+    <section id="header">
+        <div class="content">
+
+            <div class="left">
+                <div class="server-name">
+                    <p>Magyar Minecraft SMP Szerver</p>
+                    <h1 class>Astral SMP </p></h1>
+                </div>
+                <p class="server-description">
+                    Csatlakozz egy egyedi Minecraft SMP szerverre, ahol jó közösséget találsz! Minecraft túlélő magyarán, modokkal illetve szabályzattal.
+                    <br><br>Jelentkezni a discord szerverünkön tudsz!
+                </p>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>IP Cím Másolása</title>
+                    <style>
+                        .ip-copied {
+                            display: none;
+                            color: green;
+                            margin-top: 10px;
+                        }
+                    </style>
+                </head>
+                <body>
+                
+                    <div class="buttons">
+                        <button class="copy-ip" onclick="copyToClipboard()">Discord meghivó</button>
+                        <a href="#about"><button class="how-to-join">Mutass többet!</button></a>
+                    </div>
+                    <p class="ip-copied" id="ipCopiedMsg">Discord Szerver meghivó sikeresen kimásolva!</p>
+                
+                    <script>
+                    function copyToClipboard() {
+                        const textToCopy = "https://discord.gg/RkTjqNzN4Y";
+                
+                        // Szöveg másolása a vágólapra
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            // Sikeres másolás esetén az értesítés megjelenítése
+                            const copiedMessage = document.getElementById("ipCopiedMsg");
+                            copiedMessage.style.display = "block";
+                
+                            // Az értesítést egy idő után el is tüntetjük
+                            setTimeout(() => {
+                                copiedMessage.style.display = "none";
+                            }, 2000); // 2 másodperc múlva elrejtés
+                        }).catch(err => {
+                            console.error("Hiba történt a másolás során: ", err);
+                        });
+                    }
+                    </script>
+                </div>
+
+</section>
+
+ 
+    <!--FAQs-->
+    <section id="faq">
+        <div class="content">
+            <div class="info">
+                <h2 class="section-title">SMP <span>Gyakori kérdések.</span></h2>
+                <p class="section-description">Összeszedtünk pár alapvető illetve eléggé gyakori kérdést amit felszoktatok tenni.</p>
+            </div>
+
+            <div class="accordion faqList">
+                <div class="accordion-item">
+                    <div class="accordion-item-header">
+                        Hogyan lehet Staffnak jelentkezni?
+                    </div>
+                    <div class="accordion-item-body">
+                        <div class="accordion-item-body-content">
+                            Staffnak, discordon a Staff-Jelentkezés szobában látod az összes információt hogy milyen pozicióra mi a követelmény a jelentkezéshez. A jelentkezésedet meg a Staff Jelentkezés ticketben lehet megtenni.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item-header">
+                        Miért van űrlapos jelentkezés?
+                    </div>
+                    <div class="accordion-item-body">
+                        <div class="accordion-item-body-content">
+                            Azért igy kell jelentkezni, mivel nem szeretnénk, hogy csak a trollkodni vágyók jöjjenek fel a szerverre. Igy valamennyire tudjuk szűrni az embereket, és eddig még nem is találkoztunk trollokkal.
+                    </div>
+                </div>
+            </div>
+                <div class="accordion-item">
+                    <div class="accordion-item-header">
+                        Mióta fut az SMP?
+                    </div>
+                    <div class="accordion-item-body">
+                        <div class="accordion-item-body-content">
+                            Az SMP, 2024.08.27. óta készül, és már többször meg is nyitottunk. Viszont mindig éreztük, hogy van min fejleszteni, de a mostani nyitást sokkal nagyobbra és jobbra tervezzük.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer id="footer">
+        <p class="copyright">&copy; 2024. <span class="server-name-footer">Astral SMP</span>. A változtatás jogát fenntartjuk!</p>
+    </footer>
+</body>
+<script src="js/script.js"></script>
+<script src="https://kit.fontawesome.com/cbf5ee59c8.js" crossorigin="anonymous"></script>
+</html>
