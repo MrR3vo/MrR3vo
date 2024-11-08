@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstralSMP | Staff Csapat</title>
+
+    <link rel="icon" href="images/astralsmp.gif">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+
+    <style>
+        /* Staff-Csapat stílusok */
+        .staff-group {
+            margin-bottom: 2em;
+            padding: 1em;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .staff-group h2 {
+            width: 100%;
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .staff-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1em;
+            border-radius: 8px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .staff-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 0.5em;
+        }
+
+        .staff-name {
+            font-size: 1em;
+            margin: 0.2em 0;
+            color: #f5f5f5;
+        }
+
+        .staff-rank {
+            font-size: 0.9em;
+            color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!--Navbar-->
+    <div class="navbar">
+        <div class="menu-mobile">
+            <a href="főoldal.html">
+                <div class="logo">
+                    <img src="images/astralsmp.gif" alt="Server logo" class="logo-img">
+                    <h3 class="server-name">AstralSMP</h3>
+                </div>
+            </a>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="links">
+            <a href="főoldal.html" class="link">Fő Oldal</a>
+            <a href="staff-csapat.html" class="link active">Staff-Csapat</a>
+        </div>
+    </div>
+
+    <!--Staff Team Section-->
+    <section id="staff-csapat">
+        <div class="content">
+
+            <div id="staff-container"></div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <p class="copyright">&copy; 2024. <span class="server-name-footer">Astral SMP</span>. A változtatás jogát fenntartjuk!</p>
+    </footer>
+
+    <script>
+        const staffData = {
+            userSkinTypeInAdminTeam: "bust",
+            atGroupsDefaultColors: {
+                Vezetőség: "rgba(178, 142, 243, 0.8)",
+                Staff_Csapattag: "rgba(178, 142, 243, 0.8)"
+            },
+            adminTeamPage: {
+                Vezetőség: [
+                    { inGameName: "MrR3vo", rank: "Tulajdonos", discordAvatarUrl: "https://cdn.discordapp.com/avatars/1129476237052624966/a_af8c559493ec179ab55184fa601a27a0.gif?size=4096", rankColor: "rgba(59, 118, 255, 1)" },
+                    { inGameName: "Itzkenzyy_", rank: "Tulajdonos", discordAvatarUrl: "https://cdn.discordapp.com/avatars/820708766957436930/6b9406d887837e210fbbe87b4b319381.webp?size=4096", rankColor: "rgba(59, 118, 255, 1)" },
+                    { inGameName: "Markhun1232", rank: "Szerver Vezető", discordAvatarUrl: "https://cdn.discordapp.com/avatars/1162057550745845761/7bf6d5e89c1d2730fcf7b037df86256f.webp?size=4096", rankColor: "rgba(0, 255, 186, 1)" },
+                ],
+                Staff_Csapattag: [
+                    { inGameName: "Birmusnator13", rank: "Jr.Moderátor", discordAvatarUrl: "https://cdn.discordapp.com/avatars/912341025178144858/375199eaa5db40dcc872e9b9c1026242.webp?size=4096", rankColor: "rgba(0, 154, 255, 1)" }
+                ]
+            }
+        };
+
+        function displayStaff() {
+            const staffContainer = document.getElementById('staff-container');
+            const adminTeamPage = staffData.adminTeamPage;
+
+            for (const group in adminTeamPage) {
+                const groupMembers = adminTeamPage[group];
+                
+                const groupDiv = document.createElement('div');
+                groupDiv.classList.add('staff-group');
+                groupDiv.style.backgroundColor = staffData.atGroupsDefaultColors[group] || '#ccc';
+
+                const groupTitle = document.createElement('h2');
+                groupTitle.textContent = group.charAt(0).toUpperCase() + group.slice(1);
+                groupDiv.appendChild(groupTitle);
+
+                groupMembers.forEach(member => {
+                    const memberDiv = document.createElement('div');
+                    memberDiv.classList.add('staff-member');
+
+                    const memberImage = document.createElement('img');
+                    memberImage.src = member.discordAvatarUrl || "images/default-avatar.png"; // Discord profilkép URL
+                    memberImage.alt = `${member.inGameName} profilképe`;
+                    memberImage.classList.add('staff-img');
+
+                    const memberName = document.createElement('h3');
+                    memberName.classList.add('staff-name');
+                    memberName.textContent = `${member.inGameName}`;
+                    
+                    const memberRank = document.createElement('p');
+                    memberRank.classList.add('staff-rank');
+                    memberRank.textContent = `${member.rank}`;
+                    memberRank.style.color = member.rankColor || "#000";
+
+                    memberDiv.appendChild(memberImage);
+                    memberDiv.appendChild(memberName);
+                    memberDiv.appendChild(memberRank);
+
+                    groupDiv.appendChild(memberDiv);
+                });
+
+                staffContainer.appendChild(groupDiv);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displayStaff);
+    </script>
+</body>
+<script src="https://kit.fontawesome.com/cbf5ee59c8.js" crossorigin="anonymous"></script>
+</html>
